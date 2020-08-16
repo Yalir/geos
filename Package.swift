@@ -15,7 +15,10 @@ let package = Package(
             publicHeadersPath: "public",
             cxxSettings: [
                 .define("USE_UNSTABLE_GEOS_CPP_API"),
-                .headerSearchPath("include")])
+                .headerSearchPath("include")],
+            linkerSettings: [
+                .unsafeFlags(["-fprofile-instr-generate"])
+        ])
     ],
     cxxLanguageStandard: .cxx11
 )
